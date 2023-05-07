@@ -3,5 +3,5 @@
 ## 🚀 | Quick Start
 + **Run ```npm install``` to download the dependencies.**
 + **Run on a localhost using ```npm run dev```!**
-# 📝 | Requirements
+### 📝 | Requirements
 + **Node v18.12.0+**
