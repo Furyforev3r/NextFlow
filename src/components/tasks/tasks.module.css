@@ -1,0 +1,8 @@
+.task {
+	cursor: pointer;
+	text-align: center;
+	width: 100%;
+	padding: 1rem;
+	background: var(--background-elevated-highlight);
+	border-radius: 0.5rem;
+}

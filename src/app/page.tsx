@@ -1,32 +1,14 @@
 'use client';
 
-import Head from 'next/head'
-import styles from '@/styles/page.module.css'
-import { useState } from 'react'
+import styles from './page.module.css'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import Task from '../components/tasks/tasks'
 
 export default function Home() {
-  const [items, setItems]: any = useState([])
-  const [inputText, setInputText] = useState("")
 
-
-  function AddToList(item: string) {
-    if (item.trim()) {
-      setItems([...items, { content: item }])
-    }
-  }
-
-  function onDragEnd(result: any) {
-    if (!result.destination) {
-      return
-    }
-
-    const itemsCopy = [...items]
-    const [reorderedItem] = itemsCopy.splice(result.source.index, 1)
-    itemsCopy.splice(result.destination.index, 0, reorderedItem)
-
-    setItems(itemsCopy)
-  }
+  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(['Test'])
+  const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
 
   return (
     <>
@@ -34,34 +16,10 @@ export default function Home() {
         <h1>NextFlow</h1>
       </header>
       <main className={styles.main}>
-        <div className={styles.container}>
-          <h2 contentEditable={true}>NextFlow</h2>
-          <form onSubmit={(e) => { e.preventDefault(); AddToList(inputText) }}>
-            <input type="text" placeholder='Add to list...' onChange={(e) => { setInputText(e.target.value) }} />
-            <input type="submit" value='>' />
-          </form>
-          <DragDropContext onDragEnd={onDragEnd}>
-            <Droppable droppableId='item'>
-              {(provided: any) => (
-                <ul className={styles.ItemsContainer} {...provided.droppableProps} ref={provided.innerRef}>
-                  {items.map((item: any, index: any) => {
-                    const itemId = index + 1
-                    return (
-                      <Draggable key={itemId.toString()} draggableId={itemId.toString()} index={index}>
-                        {(provided: any) => (
-                          <li className={styles.item} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}  {...provided.placeholder}>
-                            <p className={styles.itemId}>{itemId}.</p>
-                            <p>{item.content}</p>
-                          </li>
-                        )}
-                      </Draggable>
-                    )
-                  })}
-                </ul>
-              )}
-            </Droppable>
-          </DragDropContext>
-        </div>
+       <input type="text"className={styles.tasksTitle} maxLength={20} value={taskTitle} onChange={(e) => setTaskTitle(e.target.value)}/>
+{/*        <div className={styles.taksContainer}>
+          {tasks.map((value: string) => <Task value={value}/>)}
+        </div>*/}
       </main>
     </>
   )

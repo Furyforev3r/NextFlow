@@ -1,68 +1,36 @@
 .header {
-  padding: 1rem;
-  margin-bottom: 1rem;
-  border-bottom: 0.1rem solid var(--color-light-gray);
+	padding: 1rem;
+	border-bottom: 0.1rem solid var(--background-highlight);
 }
 
 .header h1::after {
-  content: ".";
-  color: var(--blue);
+	content: '.';
+	color: var(--purple-color-secondary);
 }
 
 .main {
-  display: grid;
-  place-items: center;
-  margin: 2.5rem;
+	display: grid;
+	place-items: center;
+	gap: 1rem;
 }
 
-.container {
-  padding: 1.5rem;
-  background: var(--color-gray);
-  border-radius: 1rem;
-  width: 100%;
+.taksContainer {
+	background: #000;
+	display: grid;
+	place-items: center;
 }
 
-.container form {
-  padding: 0.8rem;
-  margin: 0.5rem;
-  border-radius: 0.8rem;
+.tasksTitle {
+	text-align: center;
+	background: none;
+	outline: none;
+	border: none;
+	cursor: text;
+    font-size: 2em;
+    font-weight: bold;
 }
 
-.container form input {
-  outline: none;
-  border: none;
-}
-
-.container form input[type="text"] {
-  width: 95%;
-}
-
-.container form input[type="submit"] {
-  cursor: pointer;
-  padding-left: 1.3rem;
-}
-
-
-.item {
-  display: flex;
-  align-items: center;
-  gap: 0.3rem;
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 1rem;
-  list-style-type: none;
-}
-
-.container form, .container form input, .item {
-  background: var(--color-white);
-}
-
-.item:hover {
-  scale: 101%;
-  transition: 0.3s;
-}
-
-.itemId {
-  color: #9f9f9f;
-  font-size: 0.8rem;
+.tasksTitle:focus {
+	outline: none;
+	border-bottom: 0.1rem solid var(--essential-subdued);
 }
