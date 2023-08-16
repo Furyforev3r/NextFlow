@@ -3,15 +3,29 @@
 	border-bottom: 0.1rem solid var(--background-highlight);
 }
 
+.header h1 {
+	cursor: pointer;
+	transition: color 0.3s;
+}
+
 .header h1::after {
 	content: '.';
 	color: var(--purple-color-secondary);
+}
+
+.header h1:hover {
+	color: var(--text-subdued);
+	transition: color 0.3s;
 }
 
 .main {
 	display: grid;
 	place-items: center;
 	gap: 1rem;
+	background: var(--background-highlight);
+	border-radius: 0.5rem;
+	margin: 1rem;
+	padding: 1rem;
 }
 
 .taksContainer {
