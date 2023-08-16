@@ -6,6 +6,6 @@
 **Run on a localhost using ```npm run dev```!**
 ### 📝 | Requirements
 **Node v18.12.0+**
-# ⚠️ | Warning
+<!-- # ⚠️ | Warning
 **There is an issue with DnD rendering that can result in some errors.
-The problem will be resolved in the future.**
+The problem will be resolved in the future.** -->
