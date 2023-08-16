@@ -1,5 +1,7 @@
+'use client';
+
 import Head from 'next/head'
-import styles from '@/styles/Home.module.css'
+import styles from '@/styles/page.module.css'
 import { useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
@@ -28,12 +30,6 @@ export default function Home() {
 
   return (
     <>
-      <Head>
-        <title>NextFlow</title>
-        <meta name="description" content="Created by https://github.com/FuryForev3r" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
       <header className={styles.header}>
         <h1>NextFlow</h1>
       </header>
