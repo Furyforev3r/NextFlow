@@ -13,7 +13,7 @@ export default function Home() {
   return (
     <>
       <header className={styles.header}>
-        <h1>NextFlow</h1>
+        <a href='https://github.com/furyforev3r/nextflow'><h1>NextFlow</h1></a>
       </header>
       <main className={styles.main}>
        <input type="text"className={styles.tasksTitle} maxLength={20} value={taskTitle} onChange={(e) => setTaskTitle(e.target.value)}/>
