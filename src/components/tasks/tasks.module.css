@@ -1,4 +1,5 @@
 .task {
+	word-break: break-all;
 	cursor: pointer;
 	text-align: center;
 	width: 100%;
