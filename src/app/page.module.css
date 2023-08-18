@@ -52,3 +52,19 @@
 	outline: none;
 	border-bottom: 0.1rem solid var(--essential-subdued);
 }
+
+.task {
+	word-break: break-all;
+	cursor: pointer;
+	text-align: center;
+	width: 100%;
+	padding: 1rem;
+	background: var(--background-elevated-highlight);
+	border-radius: 0.5rem;
+	transition: transform 0.3s;
+}
+
+.task p {
+	font-size: 1.2rem;
+}
+

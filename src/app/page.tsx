@@ -1,14 +1,17 @@
-'use client';
+'use client'
 
 import styles from './page.module.css'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useState, useCallback, useEffect } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
-import Task from '../components/tasks/tasks'
 
 export default function Home() {
 
-  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(['Test', 'Test', 'Test'])
+  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(['Test 1', 'Test 2', 'Test 3'])
   const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
+
+  function handleOnDragEnd(result: any) {
+    console.log(result)
+  }
 
   return (
     <>
@@ -17,9 +20,28 @@ export default function Home() {
       </header>
       <main className={styles.main}>
        <input type="text"className={styles.tasksTitle} maxLength={20} value={taskTitle} onChange={(e) => setTaskTitle(e.target.value)}/>
-       <div className={styles.taksContainer}>
-          {tasks.map((value: string) => <Task value={value}/>)}
-        </div>
+       <DragDropContext onDragEnd={handleOnDragEnd}>
+          <Droppable droppableId="characters">
+          {(provided) => (
+              <ul className={styles.taksContainer} {...provided.droppableProps} ref={provided.innerRef}>
+                    {tasks.map((value: string, index: number) => {
+                        return (
+                          <Draggable draggableId={value} index={index}>
+                            {(provided: any) => (
+                                <li className={styles.task} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
+                                  <p>{value}</p>
+                                </li>
+                              )
+                            }
+                          </Draggable>)
+                      })
+                    }
+                    {provided.placeholder}
+                </ul>
+              )
+            }
+          </Droppable>
+        </DragDropContext>
       </main>
     </>
   )
