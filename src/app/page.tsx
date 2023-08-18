@@ -7,7 +7,7 @@ import Task from '../components/tasks/tasks'
 
 export default function Home() {
 
-  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(['Test'])
+  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(['Test', 'Test', 'Test'])
   const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
 
   return (
@@ -17,9 +17,9 @@ export default function Home() {
       </header>
       <main className={styles.main}>
        <input type="text"className={styles.tasksTitle} maxLength={20} value={taskTitle} onChange={(e) => setTaskTitle(e.target.value)}/>
-{/*        <div className={styles.taksContainer}>
+       <div className={styles.taksContainer}>
           {tasks.map((value: string) => <Task value={value}/>)}
-        </div>*/}
+        </div>
       </main>
     </>
   )

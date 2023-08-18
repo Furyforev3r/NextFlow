@@ -5,4 +5,14 @@
 	padding: 1rem;
 	background: var(--background-elevated-highlight);
 	border-radius: 0.5rem;
+	transition: transform 0.3s;
+}
+
+.task:hover {
+	transform: translateY(-0.2rem);
+	transition: transform 0.3s;
+}
+
+.task p {
+	font-size: 1.2rem;
 }
