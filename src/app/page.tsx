@@ -11,9 +11,9 @@ export default function Home() {
 
   function handleOnDragEnd(result: any) {
     if (!result.destination) return
-    const items = Array.from(tasks);
-    const [reorderedItem] = items.splice(result.source.index, 1);
-    items.splice(result.destination.index, 0, reorderedItem);
+    const items = Array.from(tasks)
+    const [reorderedItem] = items.splice(result.source.index, 1)
+    items.splice(result.destination.index, 0, reorderedItem)
     setTask(items)
   }
 
