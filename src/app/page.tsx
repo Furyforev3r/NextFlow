@@ -4,13 +4,22 @@ import styles from './page.module.css'
 import { Dispatch, SetStateAction, useState, useCallback, useEffect } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
+interface Task {
+  id: string,
+  value: string
+}
+
 export default function Home() {
 
-  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(['Test 1', 'Test 2', 'Test 3'])
+  const [tasks, setTask]: [Array<Task>, Dispatch<SetStateAction<Task[]>>] = useState([{ id: "Test", value: "Test" }, { id: "Test1", value: "Test1" }])
   const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
 
   function handleOnDragEnd(result: any) {
-    console.log(result)
+    if (!result.destination) return
+    const items = Array.from(tasks)
+    const [reorderedItem] = items.splice(result.source.index, 1)
+    items.splice(result.destination.index, 0, reorderedItem)
+    setTask(items)
   }
 
   return (
@@ -24,12 +33,12 @@ export default function Home() {
           <Droppable droppableId="characters">
           {(provided) => (
               <ul className={styles.taksContainer} {...provided.droppableProps} ref={provided.innerRef}>
-                    {tasks.map((value: string, index: number) => {
+                    {tasks.map((task: Task, index: number) => {
                         return (
-                          <Draggable draggableId={value} index={index}>
+                          <Draggable key={task.id} draggableId={task.id} index={index}>
                             {(provided: any) => (
                                 <li className={styles.task} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
-                                  <p>{value}</p>
+                                  <p>{task.value}</p>
                                 </li>
                               )
                             }
