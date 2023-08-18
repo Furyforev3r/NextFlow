@@ -24,8 +24,8 @@
 	gap: 1rem;
 	background: var(--background-highlight);
 	border-radius: 0.5rem;
-	margin: 5%;
-	padding: 1rem;
+	margin-inline: 15%;
+	padding: 2rem;
 }
 
 .taksContainer {
