@@ -17,5 +17,5 @@ npm run dev
 ```
  **Acess the application in the browser: `http://localhost:PORT`**
 
-### 📝 | Requirements
+# 📝 | Requirements
 **Node v18.12.0+**
