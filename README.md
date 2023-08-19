@@ -1,8 +1,21 @@
 # 💻 | NextFlow
 **A task app made in Next JS with drag and drop inspired by Trello!**
-## 🚀 | Quick Start
-**Run ```npm install``` to download the dependencies.**
 
-**Run on a localhost using ```npm run dev```!**
+# 📥 Installation
+**Clone the repository:**
+```bash
+git clone https://github.com/furyforev3r/todo-app-reactjs-typescript.git
+```
+**Install dependencies:**
+```bash
+npm install
+```
+# 🖥️ How to Run
+**Run the command:**
+```bash
+npm run dev
+```
+ **Acess the application in the browser: `http://localhost:PORT`**
+
 ### 📝 | Requirements
 **Node v18.12.0+**
