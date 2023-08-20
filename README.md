@@ -15,7 +15,7 @@ npm install
 ```bash
 npm run dev
 ```
- **Acess the application in the browser: `http://localhost:PORT`**
+ **- Acess the application in the browser: `http://localhost:PORT`**
 
 # 📝 | Requirements
 **Node v18.12.0+**
