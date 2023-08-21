@@ -1,4 +1,4 @@
-# 💻 | NextFlow
+# 💻 NextFlow
 **A task app made in Next JS with drag and drop inspired by Trello!**
 
 # 📥 Installation
