@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './page.module.css'
-import { Dispatch, SetStateAction, useState, useCallback, useEffect } from 'react'
+import { Dispatch, SetStateAction, useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 
 export default function Home() {
