@@ -4,7 +4,7 @@
 # 📥 Installation
 **Clone the repository:**
 ```bash
-git clone https://github.com/furyforev3r/todo-app-reactjs-typescript.git
+git clone https://github.com/Furyforev3r/NextFlow.git
 ```
 **Install dependencies:**
 ```bash
