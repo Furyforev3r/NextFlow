@@ -1,7 +1,7 @@
 'use client'
 
 import styles from './page.module.css'
-import { Dispatch, SetStateAction, useState } from 'react'
+import { Dispatch, SetStateAction, useState, useCallback, useEffect } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { RxCross1 } from 'react-icons/rx'
 
@@ -19,6 +19,19 @@ export default function Home() {
     items.splice(result.destination.index, 0, reorderedItem)
     setTask(items)
   }
+
+  const handleKeyPress = useCallback((event: any) => {
+    if (event.key.toLowerCase() == "n") {
+     setToastVisible((current) => !current)
+    }
+  }, [])
+
+  useEffect(() => {
+    document.addEventListener('keydown', handleKeyPress)
+    return () => {
+      document.removeEventListener('keydown', handleKeyPress)
+    }
+  }, [handleKeyPress])
 
   return (
     <>
