@@ -11,104 +11,109 @@
     z-index: 999;
 }
 
+@keyframes drop{
+    0% { opacity: 0; transform: translateY(-3rem) }
+    100% { transform: translateY(0rem) }
+}
 
 .toast {
-	display: flex;
-	flex-direction: column;
-	gap: 1rem;
-	padding: 2rem;
-	background: var(--background-elevated-highlight);
-	border-radius: 0.5rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 2rem;
+    background: var(--background-elevated-highlight);
+    border-radius: 0.5rem;
+    animation: drop 1s ease forwards;
 }
 
 .toastClose {
-	cursor: pointer;
+    cursor: pointer;
 }
 
 .toast form {
-	cursor: pointer;
-	padding: 0.8rem;
-	background: var(--gray-color);
-	border-radius: 0.5rem;
+    cursor: pointer;
+    padding: 0.8rem;
+    background: var(--gray-color);
+    border-radius: 0.5rem;
 }
 
 .toast form input {
-	background: none;
-	border: none;
+    background: none;
+    border: none;
 }
 
 .toast form input:focus {
-	outline: none;
-	background: none;
+    outline: none;
+    background: none;
 }
 
 .header {
-	padding: 1rem;
-	border-bottom: 0.1rem solid var(--background-highlight);
+    padding: 1rem;
+    border-bottom: 0.1rem solid var(--background-highlight);
 }
 
 .header h1 {
-	cursor: pointer;
-	transition: color 0.3s;
+    cursor: pointer;
+    transition: color 0.3s;
 }
 
 .header h1::after {
-	content: '.';
-	color: var(--purple-color-secondary);
+    content: '.';
+    color: var(--purple-color-secondary);
 }
 
 .header h1:hover {
-	color: var(--text-subdued);
-	transition: color 0.3s;
+    color: var(--text-subdued);
+    transition: color 0.3s;
 }
 
 .main {
-	display: grid;
-	place-items: center;
-	gap: 1rem;
-	background: var(--background-highlight);
-	border-radius: 0.5rem;
-	margin-inline: 15%;
-	padding: 2rem;
+    display: grid;
+    place-items: center;
+    gap: 1rem;
+    background: var(--background-highlight);
+    border-radius: 0.5rem;
+    margin-inline: 15%;
+    padding: 2rem;
 }
 
 .taksContainer {
-	width: 90%;
-	display: flex;
-	flex-direction: column;
-	gap: 0.8rem;
-	align-items: center;
-	justify-content: center;
+    width: 90%;
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+    align-items: center;
+    justify-content: center;
 }
 
 .tasksTitle {
-	width: 50%;
-	text-align: center;
-	background: none;
-	outline: none;
-	border: none;
-	cursor: text;
+    width: 50%;
+    text-align: center;
+    background: none;
+    outline: none;
+    border: none;
+    cursor: text;
     font-size: 2em;
     font-weight: bold;
 }
 
 .tasksTitle:focus {
-	outline: none;
-	border-bottom: 0.1rem solid var(--essential-subdued);
+    outline: none;
+    border-bottom: 0.1rem solid var(--essential-subdued);
 }
 
 .task {
-	word-break: break-all;
-	cursor: pointer;
-	text-align: center;
-	width: 100%;
-	padding: 1rem;
-	background: var(--background-elevated-highlight);
-	border-radius: 0.5rem;
-	transition: transform 0.3s;
+    word-break: break-all;
+    cursor: pointer;
+    text-align: center;
+    width: 100%;
+    padding: 1rem;
+    background: var(--background-elevated-highlight);
+    border-radius: 0.5rem;
+    transition: transform 0.3s;
 }
 
 .task p {
-	font-size: 1.2rem;
+    font-size: 1.2rem;
 }
 
