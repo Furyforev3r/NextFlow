@@ -3,11 +3,14 @@
 import styles from './page.module.css'
 import { Dispatch, SetStateAction, useState } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
+import { RxCross1 } from 'react-icons/rx'
 
 export default function Home() {
 
   const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(['Test 1', 'Test 2', 'Test 3'])
   const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
+  const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
+  const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
 
   function handleOnDragEnd(result: any) {
     if (!result.destination) return
@@ -19,6 +22,18 @@ export default function Home() {
 
   return (
     <>
+      {isToastVisible ?
+        <div className={styles.toastOverlay}>
+          <div className={styles.toast}>
+            <RxCross1 className={styles.toastClose} onClick={() => setToastVisible(false)}/>
+            <h1>New task...</h1>
+            <form>
+              <input type="text" placeholder='Task title...' className={styles.toastInput} maxLength={20} value={taskInput} onChange={(e) => setTaskInput(e.target.value)}/>
+              <input type="submit" value=">" />
+            </form>
+          </div>
+        </div> : null
+        }
       <header className={styles.header}>
         <a href='https://github.com/furyforev3r/nextflow'><h1>NextFlow</h1></a>
       </header>
