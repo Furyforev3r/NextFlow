@@ -33,6 +33,13 @@ export default function Home() {
     }
   }, [handleKeyPress])
 
+
+  function AddToList(item: string) {
+    if (item.trim() && !tasks.includes(item)) {
+      setTask([...tasks, item])
+    }
+  }
+
   return (
     <>
       {isToastVisible ?
@@ -40,7 +47,7 @@ export default function Home() {
           <div className={styles.toast}>
             <RxCross1 className={styles.toastClose} onClick={() => setToastVisible(false)}/>
             <h1>New task...</h1>
-            <form>
+            <form onSubmit={(e) => { e.preventDefault(); AddToList(taskInput) }}>
               <input type="text" placeholder='Task title...' className={styles.toastInput} maxLength={20} value={taskInput} onChange={(e) => setTaskInput(e.target.value)}/>
               <input type="submit" value=">" />
             </form>
