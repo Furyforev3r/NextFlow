@@ -31,13 +31,13 @@
 }
 
 .toast form {
-    cursor: pointer;
-    padding: 0.8rem;
     background: var(--gray-color);
     border-radius: 0.5rem;
 }
 
 .toast form input {
+    cursor: pointer;
+    padding: 1.2rem;
     background: none;
     border: none;
 }
