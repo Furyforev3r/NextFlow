@@ -10,7 +10,7 @@ export default function Home() {
   const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(['Test 1', 'Test 2', 'Test 3'])
   const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
-  const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
+  const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false)
 
   function handleOnDragEnd(result: any) {
     if (!result.destination) return
