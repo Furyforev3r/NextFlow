@@ -4,6 +4,7 @@ import styles from './page.module.css'
 import { Dispatch, SetStateAction, useState, useCallback, useEffect } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { RxCross1 } from 'react-icons/rx'
+import { FaTrashAlt } from 'react-icons/fa'
 import toast, { Toaster } from 'react-hot-toast'
 
 export default function Home() {
@@ -100,6 +101,7 @@ export default function Home() {
             }
           </Droppable>
         </DragDropContext>
+        <FaTrashAlt size={28} className={styles.trashIcon}/>
       </main>
     </>
   )
