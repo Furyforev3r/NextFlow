@@ -6,10 +6,24 @@ import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { RxCross1 } from 'react-icons/rx'
 import { FaTrashAlt } from 'react-icons/fa'
 import toast, { Toaster } from 'react-hot-toast'
+import Cookies from 'js-cookie'
 
 export default function Home() {
 
-  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState([''])
+
+  const saveTasksToCookies = (tasks: Array<string>) => {
+    Cookies.set('tasks', JSON.stringify(tasks))
+  }
+
+  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(() => {
+    const savedTasks = Cookies.get('tasks')
+    return savedTasks ? JSON.parse(savedTasks) : ['']
+  })
+
+  useEffect(() => {
+    saveTasksToCookies(tasks)
+  }, [tasks])
+
   const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
   const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
@@ -28,12 +42,12 @@ export default function Home() {
     switch (keyPressed) {
       case "n":
         setToastVisible((current: boolean) => !current)
-        break;
+        break
       case "escape":
         if (isToastVisible) setToastVisible((current: boolean) => !current)
-        break;
+        break
       default:
-        break;
+        break
     }
   }, [])
 
