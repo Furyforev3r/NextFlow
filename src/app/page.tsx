@@ -7,10 +7,10 @@ import { RxCross1 } from 'react-icons/rx'
 
 export default function Home() {
 
-  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(['NextFlow'])
+  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState([])
   const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
-  const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false)
+  const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
 
   function handleOnDragEnd(result: any) {
     if (!result.destination) return
