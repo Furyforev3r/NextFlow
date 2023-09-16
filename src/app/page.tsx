@@ -11,9 +11,9 @@ import Cookies from 'js-cookie'
 export default function Home() {
 
 
-  const saveTasksToCookies = (tasks: Array<string>, taskTitle: string) => {
+  const saveTasksToCookies = (tasks: Array<string>, tasksTitle: string) => {
     Cookies.set('tasks', JSON.stringify(tasks))
-    Cookies.set('tasksTitle', taskTitle)
+    Cookies.set('tasksTitle', tasksTitle)
   }
 
   const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(() => {
@@ -21,14 +21,14 @@ export default function Home() {
     return savedTasks ? JSON.parse(savedTasks) : ['']
   })
 
-  const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState(() => {
-    const savedTitle = Cookies.get('taskTitle')
+  const [tasksTitle, setTasksTitle]: [string, Dispatch<SetStateAction<string>>] = useState(() => {
+    const savedTitle = Cookies.get('tasksTitle')
     return savedTitle ? savedTitle : 'Nextflow'
   })
 
   useEffect(() => {
-    saveTasksToCookies(tasks, taskTitle)
-  }, [tasks, taskTitle])
+    saveTasksToCookies(tasks, tasksTitle)
+  }, [tasks, tasksTitle])
 
 
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
@@ -102,7 +102,7 @@ export default function Home() {
         <a href='https://github.com/furyforev3r/nextflow'><h1>NextFlow</h1></a>
       </header>
       <main className={styles.main}>
-       <input type="text"className={styles.tasksTitle} maxLength={20} value={taskTitle} onChange={(e) => setTaskTitle(e.target.value)}/>
+       <input type="text"className={styles.tasksTitle} maxLength={20} value={tasksTitle} onChange={(e) => setTasksTitle(e.target.value)}/>
        <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="characters">
           {(provided) => (
