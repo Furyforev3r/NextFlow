@@ -8,7 +8,7 @@ import toast, { Toaster } from 'react-hot-toast'
 
 export default function Home() {
 
-  const [tasks, setTask]: [Array<never>, Dispatch<SetStateAction<never[]>>] = useState([])
+  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState([''])
   const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
   const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
@@ -83,7 +83,7 @@ export default function Home() {
           {(provided) => (
               <ul className={styles.taksContainer} {...provided.droppableProps} ref={provided.innerRef}>
                     {tasks.map((value: string, index: number) => {
-                        return (
+                        if (value.trim()) return (
                           <Draggable key={value} draggableId={value} index={index}>
                             {(provided: any) => (
                                 <li className={styles.task} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
