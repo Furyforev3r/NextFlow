@@ -11,8 +11,9 @@ import Cookies from 'js-cookie'
 export default function Home() {
 
 
-  const saveTasksToCookies = (tasks: Array<string>) => {
+  const saveTasksToCookies = (tasks: Array<string>, taskTitle: string) => {
     Cookies.set('tasks', JSON.stringify(tasks))
+    Cookies.set('tasksTitle', taskTitle)
   }
 
   const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(() => {
@@ -20,11 +21,16 @@ export default function Home() {
     return savedTasks ? JSON.parse(savedTasks) : ['']
   })
 
+  const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState(() => {
+    const savedTitle = Cookies.get('taskTitle')
+    return savedTitle ? savedTitle : 'Nextflow'
+  })
+
   useEffect(() => {
-    saveTasksToCookies(tasks)
+    saveTasksToCookies(tasks, taskTitle)
   }, [tasks])
 
-  const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
+
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
   const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
   const notifySucess = () => toast.success('Task added.')
