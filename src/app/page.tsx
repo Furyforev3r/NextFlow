@@ -4,13 +4,15 @@ import styles from './page.module.css'
 import { Dispatch, SetStateAction, useState, useCallback, useEffect } from 'react'
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { RxCross1 } from 'react-icons/rx'
+import toast, { Toaster } from 'react-hot-toast'
 
 export default function Home() {
 
-  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState([])
+  const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState([''])
   const [taskTitle, setTaskTitle]: [string, Dispatch<SetStateAction<string>>] = useState('NextFlow')
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
   const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
+  const notifySucess = () => toast.success('Task added.')
 
   function handleOnDragEnd(result: any) {
     if (!result.destination) return
@@ -44,12 +46,21 @@ export default function Home() {
 
   function AddToList(item: string) {
     if (item.trim() && !tasks.includes(item)) {
+      notifySucess()
       setTask([...tasks, item])
     }
   }
 
   return (
     <>
+      <Toaster position='top-right' toastOptions={
+        {
+          duration: 1000,
+          style: {
+            background: '#1ed760',
+            color: '#fff'
+          }
+      }}/>
       {isToastVisible ?
         <div className={styles.toastOverlay}>
           <div className={styles.toast}>
