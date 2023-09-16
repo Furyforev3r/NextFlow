@@ -36,10 +36,13 @@
 }
 
 .toast form input {
-    cursor: pointer;
     padding: 1.2rem;
     background: none;
     border: none;
+}
+
+.toast form input[type="submit"] {
+    cursor: pointer;
 }
 
 .toast form input:focus {
