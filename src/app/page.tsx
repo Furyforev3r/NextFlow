@@ -115,7 +115,7 @@ export default function Home() {
             }
           </Droppable>
         </DragDropContext>
-        <FaTrashAlt size={28} className={styles.trashIcon}/>
+        <FaTrashAlt size={28} className={styles.trashIcon} onClick={ setTask(['']) }/>
       </main>
     </>
   )
