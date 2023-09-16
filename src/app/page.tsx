@@ -28,7 +28,7 @@ export default function Home() {
 
   useEffect(() => {
     saveTasksToCookies(tasks, taskTitle)
-  }, [tasks])
+  }, [tasks, taskTitle])
 
 
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
@@ -65,11 +65,15 @@ export default function Home() {
   }, [handleKeyPress])
 
 
-  function AddToList(item: string) {
+  const AddToList (item: string) => {
     if (item.trim() && !tasks.includes(item)) {
       notifySucess()
       setTask([...tasks, item])
     }
+  }
+
+  const clearTasks = () => {
+    setTask(['']);
   }
 
   return (
@@ -121,7 +125,7 @@ export default function Home() {
             }
           </Droppable>
         </DragDropContext>
-        <FaTrashAlt size={28} className={styles.trashIcon} onClick={ setTask(['']) }/>
+        <FaTrashAlt size={28} className={styles.trashIcon} onClick={clearTasks}/>
       </main>
     </>
   )
