@@ -21,8 +21,16 @@ export default function Home() {
   }
 
   const handleKeyPress = useCallback((event: any) => {
-    if (event.key.toLowerCase() == "n") {
-     setToastVisible((current) => !current)
+    const keyPressed: string = event.key.toLowerCase()
+    switch (keyPressed) {
+      case "n":
+        setToastVisible((current) => !current)
+        break;
+      case "escape":
+        if (isToastVisible) setToastVisible((current) => !current)
+        break;
+      default:
+        break;
     }
   }, [])
 
