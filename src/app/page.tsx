@@ -65,7 +65,7 @@ export default function Home() {
   }, [handleKeyPress])
 
 
-  const AddToList (item: string) => {
+  const AddToList = (item: string) => {
     if (item.trim() && !tasks.includes(item)) {
       notifySucess()
       setTask([...tasks, item])
