@@ -120,6 +120,12 @@
     font-size: 1.2rem;
 }
 
+.iconsContainer {
+    display: flex;
+    flex-direction: row;
+    gap: 0.8rem;
+}
+
 .trashIcon {
     fill: var(--text-negative);
 }

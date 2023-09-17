@@ -126,7 +126,7 @@ export default function Home() {
             }
           </Droppable>
         </DragDropContext>
-        <div>
+        <div className={styles.iconsContainer}>
           <AiOutlinePlus size={28} className={styles.addIcon}/>
           <FaTrashAlt size={28} className={styles.trashIcon} onClick={clearTasks}/>
         </div>
