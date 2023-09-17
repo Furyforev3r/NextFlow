@@ -73,10 +73,6 @@ export default function Home() {
     }
   }
 
-  const clearTasks = () => {
-    setTask(['']);
-  }
-
   return (
     <>
       <Toaster position='top-right' toastOptions={
@@ -127,8 +123,8 @@ export default function Home() {
           </Droppable>
         </DragDropContext>
         <div className={styles.iconsContainer}>
-          <AiOutlinePlus size={28} className={styles.addIcon}/>
-          <FaTrashAlt size={28} className={styles.trashIcon} onClick={clearTasks}/>
+          <AiOutlinePlus size={28} className={styles.addIcon} onClick={() => setToastVisible(true)}/>
+          <FaTrashAlt size={28} className={styles.trashIcon} onClick={() => setTask([''])}/>
         </div>
       </main>
     </>
