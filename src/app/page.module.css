@@ -121,10 +121,13 @@
 }
 
 .trashIcon {
+    fill: var(--text-negative);
+}
+
+.trashIcon, .addIcon {
     padding: 1rem;
     border-radius: 30%;
     background-color: var(--black-color-primary);
-    fill: var(--text-negative);
     cursor: pointer;
 }
 

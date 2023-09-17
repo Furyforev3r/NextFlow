@@ -5,6 +5,7 @@ import { Dispatch, SetStateAction, useState, useCallback, useEffect } from 'reac
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { RxCross1 } from 'react-icons/rx'
 import { FaTrashAlt } from 'react-icons/fa'
+import { AiOutlinePlus } from 'react-icons/ai'
 import toast, { Toaster } from 'react-hot-toast'
 import Cookies from 'js-cookie'
 
@@ -125,7 +126,10 @@ export default function Home() {
             }
           </Droppable>
         </DragDropContext>
-        <FaTrashAlt size={28} className={styles.trashIcon} onClick={clearTasks}/>
+        <div>
+          <AiOutlinePlus size={28} className={styles.addIcon}/>
+          <FaTrashAlt size={28} className={styles.trashIcon} onClick={clearTasks}/>
+        </div>
       </main>
     </>
   )
