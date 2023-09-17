@@ -97,7 +97,7 @@ export default function Home() {
             </form>
           </div>
         </div> : null
-        }
+      }
       <header className={styles.header}>
         <a href='https://github.com/furyforev3r/nextflow'><h1>NextFlow</h1></a>
       </header>
