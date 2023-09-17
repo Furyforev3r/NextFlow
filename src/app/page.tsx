@@ -47,10 +47,10 @@ export default function Home() {
     const keyPressed: string = event.key.toLowerCase()
     switch (keyPressed) {
       case "n":
-        if (!isToastVisible) setToastVisible((current: boolean) => !current)
+        setToastVisible(true)
         break
       case "escape":
-        if (isToastVisible) setToastVisible((current: boolean) => !current)
+        setToastVisible(false)
         break
       default:
         break
