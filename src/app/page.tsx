@@ -87,7 +87,7 @@ export default function Home() {
         <div className={styles.toastOverlay}>
           <div className={styles.toast}>
             <RxCross1 className={styles.toastClose} onClick={() => setToastVisible(false)}/>
-            <h1>New task...</h1>
+            <h1 translate="no">New task...</h1>
             <form onSubmit={(e) => { e.preventDefault(); AddToList(taskInput) }}>
               <input type="text" placeholder='Task title...' className={styles.toastInput} maxLength={20} value={taskInput} onChange={(e) => setTaskInput(e.target.value)}/>
               <input type="submit" value=">" />
