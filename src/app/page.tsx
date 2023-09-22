@@ -19,7 +19,7 @@ export default function Home() {
 
   const [tasks, setTask]: [Array<string>, Dispatch<SetStateAction<string[]>>] = useState(() => {
     const savedTasks = Cookies.get('tasks')
-    return savedTasks ? JSON.parse(savedTasks) : ['']
+    return savedTasks ? JSON.parse(savedTasks) : []
   })
 
   const [tasksTitle, setTasksTitle]: [string, Dispatch<SetStateAction<string>>] = useState(() => {
