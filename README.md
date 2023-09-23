@@ -1,7 +1,7 @@
 # 💻 | NextFlow
 **A task app made in Next JS with drag and drop inspired by Trello!**
 
-# 📥 | Installation
+# 📥 Installation
 **Clone the repository:**
 ```bash
 git clone https://github.com/Furyforev3r/NextFlow.git
