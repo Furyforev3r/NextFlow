@@ -35,6 +35,7 @@ export default function Home() {
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
   const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
   const notifySucess = () => toast.success('Task added.')
+  const notifyFinished = () => toast.success('Task finished.')
 
   function handleOnDragEnd(result: any) {
     if (!result.destination) return
@@ -76,6 +77,7 @@ export default function Home() {
   
   function RemoveFromList(textValue: string) {
     setTask(tasks.filter((i: string) => i !== textValue))
+    notifyFinished()
   }
 
   return (
