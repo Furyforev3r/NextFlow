@@ -106,14 +106,29 @@
 }
 
 .task {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
     word-break: break-all;
     cursor: pointer;
     text-align: center;
     width: 100%;
-    padding: 1rem;
+    padding: 1.2rem;
     background: var(--background-elevated-highlight);
     border-radius: 0.5rem;
     transition: transform 0.3s;
+}
+
+.finishedIcon {
+    cursor: pointer;
+    fill: var(--text-announcement);
+    transition: fill 0.3s;
+}
+
+.finishedIcon:hover {
+    fill: var(--essential-bright-accent);
+    transition: fill 0.3s;
 }
 
 .task p {

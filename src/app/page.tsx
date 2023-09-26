@@ -5,7 +5,7 @@ import { Dispatch, SetStateAction, useState, useCallback, useEffect } from 'reac
 import { DragDropContext, Droppable, Draggable } from 'react-beautiful-dnd'
 import { RxCross1 } from 'react-icons/rx'
 import { FaTrashAlt } from 'react-icons/fa'
-import { AiOutlinePlus } from 'react-icons/ai'
+import { AiOutlinePlus, AiOutlineCheck } from 'react-icons/ai'
 import toast, { Toaster } from 'react-hot-toast'
 import Cookies from 'js-cookie'
 
@@ -73,6 +73,11 @@ export default function Home() {
     }
   }
 
+  
+  function RemoveFromList(textValue: string) {
+    setTask(tasks.filter((i: string) => i !== textValue))
+  }
+
   return (
     <>
       <Toaster position='top-right' toastOptions={
@@ -110,6 +115,7 @@ export default function Home() {
                             {(provided: any) => (
                                 <li className={styles.task} ref={provided.innerRef} {...provided.draggableProps} {...provided.dragHandleProps}>
                                   <p>{value}</p>
+                                  <AiOutlineCheck size={28} className={styles.finishedIcon} onClick={() => RemoveFromList(value)}/>
                                 </li>
                               )
                             }
