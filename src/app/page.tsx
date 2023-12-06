@@ -10,8 +10,6 @@ import toast, { Toaster } from 'react-hot-toast'
 import Cookies from 'js-cookie'
 
 export default function Home() {
-
-
   const saveTasksToCookies = (tasks: Array<string>, tasksTitle: string) => {
     Cookies.set('tasks', JSON.stringify(tasks))
     Cookies.set('tasksTitle', tasksTitle)
@@ -34,6 +32,7 @@ export default function Home() {
 
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
   const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
+
   const notifySucess = () => toast.success('Task added.')
   const notifyFinished = () => toast.success('Task finished.')
 
