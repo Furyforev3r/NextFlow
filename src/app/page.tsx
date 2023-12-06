@@ -10,6 +10,7 @@ import toast, { Toaster } from 'react-hot-toast'
 import Cookies from 'js-cookie'
 
 export default function Home() {
+
   const saveTasksToCookies = (tasks: Array<string>, tasksTitle: string) => {
     Cookies.set('tasks', JSON.stringify(tasks))
     Cookies.set('tasksTitle', tasksTitle)
@@ -32,6 +33,7 @@ export default function Home() {
 
   const [taskInput, setTaskInput]: [string, Dispatch<SetStateAction<string>>] = useState('')
   const [isToastVisible, setToastVisible]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(true)
+  const [isOnFocus, setIsOnFocus]: [boolean, Dispatch<SetStateAction<boolean>>] = useState(false)
 
   const notifySucess = () => toast.success('Task added.')
   const notifyFinished = () => toast.success('Task finished.')
@@ -46,17 +48,20 @@ export default function Home() {
 
   const handleKeyPress = useCallback((event: any) => {
     const keyPressed: string = event.key.toLowerCase()
-    switch (keyPressed) {
-      case "n":
-        setToastVisible(true)
-        break
-      case "escape":
-        setToastVisible(false)
-        break
-      default:
-        break
+
+    if (isOnFocus == false) {
+      switch (keyPressed) {
+        case "n":
+            setToastVisible(true)
+          break
+        case "escape":
+          setToastVisible(false)
+          break
+        default:
+          break
+      }
     }
-  }, [])
+  }, [isOnFocus])
 
   useEffect(() => {
     document.addEventListener('keydown', handleKeyPress)
@@ -105,7 +110,7 @@ export default function Home() {
         <a href='https://github.com/furyforev3r/nextflow'><h1>NextFlow</h1></a>
       </header>
       <main className={styles.main}>
-       <input type="text"className={styles.tasksTitle} maxLength={20} value={tasksTitle} onChange={(e) => setTasksTitle(e.target.value)}/>
+       <input type="text"className={styles.tasksTitle} maxLength={20} value={tasksTitle} onChange={(e) => setTasksTitle(e.target.value)} onFocus={(e) => setIsOnFocus(true)} onBlur={(e) => setIsOnFocus(false)}/>
        <DragDropContext onDragEnd={handleOnDragEnd}>
           <Droppable droppableId="characters">
           {(provided) => (
