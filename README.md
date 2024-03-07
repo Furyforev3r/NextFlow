@@ -1,3 +1,4 @@
+![NextFlow](https://github.com/Furyforev3r/NextFlow/assets/88341564/a4ce75cb-b3a3-440d-bda5-89264128890d)
 # 💻 | NextFlow
 **A task app made in NextJS with drag and drop inspired by Trello!**
 
